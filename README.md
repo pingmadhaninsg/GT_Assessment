@@ -39,7 +39,7 @@ You are tasked to ingest this data into the sqlite database. The database has th
         prerequisites string -- JSON string representation of array<int> e.g., [1,2,3]
     );
 
-    create table enrolments as (
+    create table enrollments as (
         enrollment_id int,
         participant_id string,
         participant_name string,

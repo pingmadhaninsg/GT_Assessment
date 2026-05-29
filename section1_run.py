@@ -51,9 +51,9 @@ def main():
     # Step 4: Validate ingestion
     print("[4/4] Validating ingestion results...")
     conn = sqlite3.connect(db_path)
-    row_count = pd.read_sql_query("SELECT COUNT(*) AS row_count FROM enrolments", conn)
+    row_count = pd.read_sql_query("SELECT COUNT(*) AS row_count FROM enrollments", conn)
     preview = pd.read_sql_query(
-        "SELECT * FROM enrolments ORDER BY enrollment_id LIMIT 5", conn
+        "SELECT * FROM enrollments ORDER BY enrollment_id LIMIT 5", conn
     )
     conn.close()
 

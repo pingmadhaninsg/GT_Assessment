@@ -8,7 +8,7 @@ This section implements the data ingestion pipeline for the GovTech assessment. 
 - Normalizes dates to ISO 8601 format
 - Converts numeric columns (amount, subsidy, credits_used)
 - Validates and removes incomplete records
-- Loads cleaned data into the `enrolments` table in SQLite
+- Loads cleaned data into the `enrollments` table in SQLite
 
 ---
 
@@ -95,13 +95,13 @@ After running, check the output for:
 ```
 Database created/updated at: <path>/data/courses.db
 Rows after cleaning: <N>
-Enrolments data loaded to: <path>/data/courses.db
+Enrollments data loaded to: <path>/data/courses.db
 ```
 
 Then verify the database contents:
 ```powershell
 # Optional: Query the database to confirm data
-python -c "import sqlite3; conn = sqlite3.connect('data/courses.db'); print(conn.execute('SELECT COUNT(*) FROM enrolments').fetchone())"
+python -c "import sqlite3; conn = sqlite3.connect('data/courses.db'); print(conn.execute('SELECT COUNT(*) FROM enrollments').fetchone())"
 ```
 
 ---
@@ -142,9 +142,9 @@ GT_Assessment/
 3. **Validation**: Drop rows with missing enrollment_id, participant_id, or course_id
 4. **Type casting**: Ensure enrollment_id and course_id are integers
 
-### Output (SQLite enrolments table)
+### Output (SQLite enrollments table)
 ```sql
-CREATE TABLE enrolments (
+CREATE TABLE enrollments (
     enrollment_id INTEGER PRIMARY KEY,
     participant_id TEXT NOT NULL,
     participant_name TEXT NOT NULL,
